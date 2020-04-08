@@ -1,8 +1,22 @@
 <ag-grid-angular 
     style="width: 500px; height: 200px;" 
     class="ag-theme-alpine"
+    [gridOptions]= "gridOptions"
     [rowData]="rowData" 
     [columnDefs]="columnDefs"
-    [modules]="modules">
+    [modules]="modules"
+    (gridReady)="onReady($event)"
+    (rowSelected) = "onRowSelected($event)"
+    >
 
 </ag-grid-angular>
+<div><span>每頁</span>
+  <select (change)="reloadData()">
+    <option value='10'>10</option>
+    <option value='20'>20</option>
+    <option value='30'>30</option>
+  </select>
+  <span>筆</span>
+  <span>{{rowCount}}</span>
+</div>
+
