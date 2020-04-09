@@ -18,7 +18,7 @@
   <span>筆</span>
   <span>{{rowCount}}</span>
 </div>
-
+<div>單選範例-有checkbox</div>
 <ag-grid-angular 
     style="width: 500px; height: 200px;" 
     class="ag-theme-alpine"
@@ -30,7 +30,7 @@
     (rowSelected) = "onRowSelected1($event)"
     >
 </ag-grid-angular>
-
+<div>多選範例-有checkbox</div>
 <ag-grid-angular 
     style="width: 500px; height: 200px;" 
     class="ag-theme-alpine"
@@ -42,4 +42,17 @@
     (rowSelected) = "onRowSelected2($event)"
     >
 </ag-grid-angular>
+<div>單選範例-無checkbox</div>
+<ag-grid-angular 
+    style="width: 500px; height: 200px;" 
+    class="ag-theme-alpine"
+    [gridOptions]= "gridOptionsSample3"
+    [rowData]="rowData3" 
+    [columnDefs]="columnDefs3"
+    [modules]="modules"
+    (gridReady)="onReady3($event)"
+    (rowSelected) = "onRowSelected3($event)"
+    >
+</ag-grid-angular>
+<div>有換頁選單</div>
 

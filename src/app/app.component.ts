@@ -24,13 +24,18 @@ export class AppComponent  {
     public gridOptions:GridOptions;//測試用
     public gridOptionsSample1:GridOptions;//單選範例-有checkbox
     public gridOptionsSample2:GridOptions;//多選範例-有checkbox
-    public gridOptionㄋ
+    public gridOptionsSample3:GridOptions;//單選範例-無checkbox
+    public gridOptionsSample4:GridOptions;//有換頁選單
     public columnDefs;
     public columnDefs1;
     public columnDefs2;
+    public columnDefs3;
+    public columnDefs4;
     public rowData;
     public rowData1;
     public rowData2;
+    public rowData3;
+    public rowData4;
     public rowCount:string ='';
     public selData =[];
 
@@ -41,6 +46,9 @@ export class AppComponent  {
       this.gridOptions = <GridOptions>{};
       this.gridOptionsSample1 = <GridOptions>{};
       this.gridOptionsSample2 = <GridOptions>{};
+      this.gridOptionsSample3 = <GridOptions>{};
+      this.gridOptionsSample4 = <GridOptions>{};
+
 
       //this.gridOptions.pagination = true;
       //this.gridOptions.paginationPageSize = 10;
@@ -52,6 +60,12 @@ export class AppComponent  {
       //範例2
       this.gridOptionsSample2.rowSelection = 'multiple';
       this.gridOptionsSample2.rowMultiSelectWithClick = true;
+      //範例3
+      this.gridOptionsSample3.rowSelection = 'single';
+      this.gridOptionsSample3.rowMultiSelectWithClick = true;
+      //範例4
+      this.gridOptionsSample4.rowSelection = 'single';
+      this.gridOptionsSample4.rowMultiSelectWithClick = true;
 
       this.createColumnDefs();
       this.createRowData();
@@ -78,6 +92,11 @@ export class AppComponent  {
         { make: 'Porsche', model: 'Boxter', price: 72000 }
       ]
 
+      this.rowData3 =[
+        { make: 'Toyota', model: 'Celica', price: 35000 },
+        { make: 'Ford', model: 'Mondeo', price: 32000 },
+        { make: 'Porsche', model: 'Boxter', price: 72000 }
+      ]
     }
 
     public reloadData(){
@@ -114,6 +133,21 @@ export class AppComponent  {
         {field: 'price',sortable: true}
       ]
 
+      this.columnDefs3 = [
+        {field: 'make',sort: 'desc' ,sortable: true },
+        {field: 'model',sortable: true},
+        {field: 'price',sortable: true}
+      ]
+
+      this.columnDefs4 = [
+        { headerName:'No.', field:'no',sortable:false },
+        { headerName:'貨物批號',field:'goodsNo',sortable:true},
+        { headerName:'商品編號',field:'goodsCode',sortable:true},
+        { headerName:'名稱',field:'goodsName',sortable:true},
+        { headerName:'開發店',field:'openStore',sortable:true},
+        { headerName:'銷售店',field:'sellStore',sortable:true}ㄝ
+      ]
+
     }
 
     //客製排序
@@ -135,6 +169,10 @@ export class AppComponent  {
 
     public onReady2(){
       console.log('onReady2');
+    }
+
+    public onReady3(){
+      console.log('onReady3');
     }
 
     public onRowSelected(event){
@@ -172,6 +210,10 @@ export class AppComponent  {
 
     public onRowSelected2(event){
       console.log(event.node.data,'onRowSelected2');
+    }
+
+    public onRowSelected3(event){
+      console.log(event.node.data,'onRowSelected3');
     }
 
     public calculateRowCount(){
