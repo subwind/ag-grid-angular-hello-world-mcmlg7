@@ -8,7 +8,6 @@
     (gridReady)="onReady($event)"
     (rowSelected) = "onRowSelected($event)"
     >
-
 </ag-grid-angular>
 <div><span>每頁</span>
   <select (change)="reloadData()">
@@ -19,4 +18,28 @@
   <span>筆</span>
   <span>{{rowCount}}</span>
 </div>
+
+<ag-grid-angular 
+    style="width: 500px; height: 200px;" 
+    class="ag-theme-alpine"
+    [gridOptions]= "gridOptionsSample1"
+    [rowData]="rowData1" 
+    [columnDefs]="columnDefs1"
+    [modules]="modules"
+    (gridReady)="onReady1($event)"
+    (rowSelected) = "onRowSelected1($event)"
+    >
+</ag-grid-angular>
+
+<ag-grid-angular 
+    style="width: 500px; height: 200px;" 
+    class="ag-theme-alpine"
+    [gridOptions]= "gridOptionsSample2"
+    [rowData]="rowData2" 
+    [columnDefs]="columnDefs2"
+    [modules]="modules"
+    (gridReady)="onReady2($event)"
+    (rowSelected) = "onRowSelected2($event)"
+    >
+</ag-grid-angular>
 
