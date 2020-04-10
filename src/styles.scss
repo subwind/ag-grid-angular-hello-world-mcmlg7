@@ -2,3 +2,20 @@
 
 @import "ag-grid-community/dist/styles/ag-grid.css";
 @import "ag-grid-community/dist/styles/ag-theme-alpine.css";
+
+.ag-theme-alpine .ag-header {
+    background-color: #FDF6DB;
+    border-bottom: solid 1px #babfc7;
+}
+
+.ag-header-cell-text{
+  color: #1c94c4;
+}
+
+.ag-header-cell-label{
+  justify-content: center;
+}
+
+.grid-cell-centered {
+  text-align: center;
+}

@@ -54,19 +54,25 @@ export class AppComponent  {
       //this.gridOptions.paginationPageSize = 10;
       this.gridOptions.rowSelection = 'multiple';
       this.gridOptions.rowMultiSelectWithClick = true;
+      this.gridOptions.headerHeight =30;
       //範例1
       this.gridOptionsSample1.rowSelection = 'single';
       this.gridOptionsSample1.rowMultiSelectWithClick = true;
+      this.gridOptionsSample1.headerHeight =30;
       //範例2
       this.gridOptionsSample2.rowSelection = 'multiple';
       this.gridOptionsSample2.rowMultiSelectWithClick = true;
+      this.gridOptionsSample2.headerHeight =30;
       //範例3
       this.gridOptionsSample3.rowSelection = 'single';
       this.gridOptionsSample3.rowMultiSelectWithClick = true;
+      this.gridOptionsSample3.headerHeight =30;
       //範例4
       this.gridOptionsSample4.rowSelection = 'single';
       this.gridOptionsSample4.rowMultiSelectWithClick = true;
-
+      this.gridOptionsSample4.headerHeight =30;
+      this.gridOptionsSample4.pagination = true;
+      this.gridOptionsSample4.paginationPageSize = 10;
       this.createColumnDefs();
       this.createRowData();
       //this.reloadData();
@@ -97,6 +103,34 @@ export class AppComponent  {
         { make: 'Ford', model: 'Mondeo', price: 32000 },
         { make: 'Porsche', model: 'Boxter', price: 72000 }
       ]
+
+      this.createRowData4();
+    }
+
+    public createRowData4(){
+      let alpha = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+      let count = 15;
+      let rowTemp = [];
+
+      let getRandomInt= (min, max)=> {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min; //不含最大值，含最小值
+      }
+
+      for(let i=0;i<count;i++){
+        let temp = {
+          no:i+1,
+          goodsNo:`${alpha[getRandomInt(0,25)]}${getRandomInt(0,25)}${getRandomInt(0,25)}`,
+          goodsCode:`${alpha[getRandomInt(0,25)]}${getRandomInt(0,25)}${getRandomInt(0,25)}`,
+          goodsName:`${alpha[getRandomInt(0,25)]}${alpha[getRandomInt(0,25)]}${alpha[getRandomInt(0,25)]}`,
+          openStore:`${alpha[getRandomInt(0,25)]}${alpha[getRandomInt(0,25)]}-${alpha[getRandomInt(0,25)]}`,
+          sellStore:`${alpha[getRandomInt(0,25)]}${alpha[getRandomInt(0,25)]}-${alpha[getRandomInt(0,25)]}`
+        }
+        rowTemp.push(temp);
+      }
+      this.rowData4 = rowTemp;
+      
     }
 
     public reloadData(){
@@ -140,12 +174,12 @@ export class AppComponent  {
       ]
 
       this.columnDefs4 = [
-        { headerName:'No.', field:'no',sortable:false },
-        { headerName:'貨物批號',field:'goodsNo',sortable:true},
+        { headerName:'No.', field:'no',sortable:false,cellClass:"grid-cell-centered" },
+        { headerName:'貨物批號',field:'goodsNo',sortable:true, unSortIcon: true},
         { headerName:'商品編號',field:'goodsCode',sortable:true},
         { headerName:'名稱',field:'goodsName',sortable:true},
         { headerName:'開發店',field:'openStore',sortable:true},
-        { headerName:'銷售店',field:'sellStore',sortable:true}ㄝ
+        { headerName:'銷售店',field:'sellStore',sortable:true}
       ]
 
     }
@@ -173,6 +207,10 @@ export class AppComponent  {
 
     public onReady3(){
       console.log('onReady3');
+    }
+
+    public onReady4(){
+      console.log('onReady4');
     }
 
     public onRowSelected(event){
@@ -214,6 +252,10 @@ export class AppComponent  {
 
     public onRowSelected3(event){
       console.log(event.node.data,'onRowSelected3');
+    }
+
+     public onRowSelected4(event){
+      console.log(event.node.data,'onRowSelected4');
     }
 
     public calculateRowCount(){
