@@ -8,6 +8,11 @@
     border-bottom: solid 1px #babfc7;
 }
 
+.ag-theme-alpine .ag-header-cell{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .ag-header-cell-text{
   color: #1c94c4;
 }
@@ -19,3 +24,13 @@
 .grid-cell-centered {
   text-align: center;
 }
+
+//.ag-theme-alpine .ag-icon-none {
+    // font-family: "Font Awesome 5 Free";
+    /* FontAwesome uses font-weight bold */
+    // font-weight: bold;
+//}
+
+// .ag-theme-alpine .ag-icon-none:before {
+//     content: '\f105';
+// }

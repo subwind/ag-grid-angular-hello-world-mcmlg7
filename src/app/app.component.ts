@@ -124,6 +124,7 @@ export class AppComponent  {
           goodsNo:`${alpha[getRandomInt(0,25)]}${getRandomInt(0,25)}${getRandomInt(0,25)}`,
           goodsCode:`${alpha[getRandomInt(0,25)]}${getRandomInt(0,25)}${getRandomInt(0,25)}`,
           goodsName:`${alpha[getRandomInt(0,25)]}${alpha[getRandomInt(0,25)]}${alpha[getRandomInt(0,25)]}`,
+          price:getRandomInt(100,500),
           openStore:`${alpha[getRandomInt(0,25)]}${alpha[getRandomInt(0,25)]}-${alpha[getRandomInt(0,25)]}`,
           sellStore:`${alpha[getRandomInt(0,25)]}${alpha[getRandomInt(0,25)]}-${alpha[getRandomInt(0,25)]}`
         }
@@ -140,6 +141,8 @@ export class AppComponent  {
         { make: 'P', model: 'B', price: 72 },
         { make: 'V', model: 'S', price: 82 }
       ]
+
+       this.calculateRowCount();
     }
 
     public createColumnDefs(){
@@ -174,10 +177,11 @@ export class AppComponent  {
       ]
 
       this.columnDefs4 = [
-        { headerName:'No.', field:'no',sortable:false,cellClass:"grid-cell-centered" },
+        { headerName:'No.',width: 60, field:'no',sortable:false,cellClass:"grid-cell-centered",headerClass: 'my-css-class', },
         { headerName:'貨物批號',field:'goodsNo',sortable:true, unSortIcon: true},
         { headerName:'商品編號',field:'goodsCode',sortable:true},
         { headerName:'名稱',field:'goodsName',sortable:true},
+        { headerName:'金額',field:'price',sortable:true,cellRenderer:this.priceCustom},
         { headerName:'開發店',field:'openStore',sortable:true},
         { headerName:'銷售店',field:'sellStore',sortable:true}
       ]
@@ -238,7 +242,7 @@ export class AppComponent  {
             }
           })
         }
-
+      
         //console.log(this.gridOptions)
     }
 
@@ -271,6 +275,17 @@ export class AppComponent  {
     public headerCheckboxSelection = (param)=>{
       console.log(param,'param');
       return true;
+    }
+
+    public priceCustom(param){
+      //console.log(param,'priceCustom');
+      let data = param.data;
+      let price = data.price;
+      let text = `<span>$${price}</span>`
+      if(price>250){
+        text = `<span style='color:red;'>$${price}</span>`
+      }
+      return text;
     }
 
 }

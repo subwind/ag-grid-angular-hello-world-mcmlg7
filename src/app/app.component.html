@@ -6,6 +6,7 @@
     [columnDefs]="columnDefs"
     [modules]="modules"
     (gridReady)="onReady($event)"
+    (rowDataChanged)="onReady($event)"
     (rowSelected) = "onRowSelected($event)"
     >
 </ag-grid-angular>
@@ -55,4 +56,15 @@
     >
 </ag-grid-angular>
 <div>有換頁選單</div>
+<ag-grid-angular 
+    style="width: 500px; height: 200px;" 
+    class="ag-theme-alpine"
+    [gridOptions]= "gridOptionsSample4"
+    [rowData]="rowData4" 
+    [columnDefs]="columnDefs4"
+    [modules]="modules"
+    (gridReady)="onReady4($event)"
+    (rowSelected) = "onRowSelected4($event)"
+    >
+</ag-grid-angular>
 
