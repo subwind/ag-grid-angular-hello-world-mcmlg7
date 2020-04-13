@@ -55,6 +55,7 @@ export class AppComponent  {
       this.gridOptions.rowSelection = 'multiple';
       this.gridOptions.rowMultiSelectWithClick = true;
       this.gridOptions.headerHeight =30;
+      this.gridOptions.enableColResize = true;
       //範例1
       this.gridOptionsSample1.rowSelection = 'single';
       this.gridOptionsSample1.rowMultiSelectWithClick = true;
