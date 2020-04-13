@@ -148,9 +148,6 @@ export class AppComponent  {
 
     public createColumnDefs(){
       this.columnDefs = [
-        /*{headerName: '#',width: 30 ,checkboxSelection: true, headerCheckboxSelection: true,
-         headerCheckboxSelectionFilteredOnly: true},*/
-        //{headerName: '#',width: 30 ,checkboxSelection: true},
         {headerName:'#',width:30,checkboxSelection:true},
         {field: 'make',sort: 'desc' ,sortable: true },
         {field: 'model',sortable: true,comparator:this.modelComparator},
@@ -165,7 +162,7 @@ export class AppComponent  {
       ]
 
       this.columnDefs2 = [
-        {headerName:'#',width:30,checkboxSelection:true},
+        {headerName:'',width:30,checkboxSelection:true,headerCheckboxSelection: true},
         {field: 'make',sort: 'desc' ,sortable: true },
         {field: 'model',sortable: true},
         {field: 'price',sortable: true}
@@ -252,7 +249,7 @@ export class AppComponent  {
     }
 
     public onRowSelected2(event){
-      console.log(event.node.data,'onRowSelected2');
+      console.log(event.node,'onRowSelected2');
     }
 
     public onRowSelected3(event){
@@ -260,7 +257,7 @@ export class AppComponent  {
     }
 
      public onRowSelected4(event){
-      console.log(event.node.data,'onRowSelected4');
+      console.log(event.node,'onRowSelected4');
     }
 
     public calculateRowCount(){
